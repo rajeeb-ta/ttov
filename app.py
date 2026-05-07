@@ -1,5 +1,30 @@
 # %cd /content/ttovai
-from pyngrok import ngrok
+import subprocess
+import gradio as gr
+import time
 
-public_url = ngrok.connect(8188)
-print(public_url)
+# Start ComfyUI in background
+process = subprocess.Popen(
+    [
+        "python",
+        "main.py",
+        "--listen",
+        "0.0.0.0",
+        "--port",
+        "8188"
+    ]
+)
+
+time.sleep(10)
+
+def status():
+    return "ComfyUI is running on port 8188"
+
+app = gr.Interface(
+    fn=status,
+    inputs=[],
+    outputs="text",
+    title="ComfyUI Launcher"
+)
+
+app.launch(share=True)
