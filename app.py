@@ -7,7 +7,7 @@ import time
 process = subprocess.Popen(
     [
         "python",
-        "main.py",
+        "../main.py",
         "--listen",
         "0.0.0.0",
         "--port",
