@@ -1,2 +1,2 @@
 from google.colab.output import eval_js
-print(eval_js("google.colab.kernel.proxyPort(5000)"))
+print(eval_js("google.colab.kernel.proxyPort(8188)"))
